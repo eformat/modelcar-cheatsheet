@@ -49,7 +49,7 @@ export MODEL_lc=${MODEL,,}
 Convert to an OCI container using `ramalama`
 
 ```bash
-ramalama convert ${MODEL_DIR}/${MODEL} quay.io/${QUAY_ORG}/${MODEL_lc}:${IMAGE_TAG}
+ramalama convert ${MODEL_DIR}/${MODEL} quay.io/${QUAY_ORG}/${MODEL_lc}:latest
 ```
 
 ## To use in RHOAI
