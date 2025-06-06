@@ -43,6 +43,7 @@ export QUAY_ORG=eformat
 export IMAGE_TAG=latest-ubi
 export MODEL_DIR=~/instructlab/models
 export MODEL=DeepSeek-R1-0528-Qwen3-8B-Q4_K_M.gguf
+export MODEL_lc=${MODEL,,}
 ```
 
 Convert to an OCI container using `ramalama`
