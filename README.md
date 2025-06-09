@@ -91,7 +91,7 @@ export MODEL_lc=${MODEL,,}
 
 cat > Containerfile.${MODEL_lc} << EOF
 FROM quay.io/redhat-ai-services/huggingface-modelcar-builder:latest as base
-ENV MODEL_REPO="ibm-granite/granite-3.2-8b-instruct"
+ENV MODEL_REPO="${MODEL_REPO}"
 RUN python3 download_model.py --model-repo ${MODEL_REPO}
 FROM registry.access.redhat.com/ubi9/ubi-micro:9.5
 COPY --from=base /models /models
