@@ -1,0 +1,6 @@
+FROM quay.io/redhat-ai-services/huggingface-modelcar-builder:latest as base
+ENV MODEL_REPO="ibm-granite/granite-3.2-8b-instruct"
+RUN python3 download_model.py --model-repo ibm-granite/granite-3.2-2b-instruct
+FROM registry.access.redhat.com/ubi9/ubi-micro:9.6
+COPY --from=base /models /models
+USER 1001

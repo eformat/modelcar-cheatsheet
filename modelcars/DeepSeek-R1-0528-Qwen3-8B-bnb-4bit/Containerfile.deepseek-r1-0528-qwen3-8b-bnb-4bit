@@ -1,0 +1,6 @@
+FROM quay.io/redhat-ai-services/huggingface-modelcar-builder:latest as base
+ENV MODEL_REPO="unsloth/DeepSeek-R1-0528-Qwen3-8B-bnb-4bit"
+RUN python3 download_model.py --model-repo unsloth/DeepSeek-R1-0528-Qwen3-8B-bnb-4bit
+FROM registry.access.redhat.com/ubi9/ubi-micro:9.6
+COPY --from=base /models /models
+USER 1001
