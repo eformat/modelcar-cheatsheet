@@ -1,0 +1,6 @@
+FROM quay.io/redhat-ai-services/huggingface-modelcar-builder:latest as base
+ENV MODEL_REPO="nvidia/NVIDIA-Nemotron-Nano-9B-v2"
+RUN python3 download_model.py --model-repo nvidia/NVIDIA-Nemotron-Nano-9B-v2
+FROM registry.access.redhat.com/ubi9/ubi-micro:9.6
+COPY --from=base /models /models
+USER 1001
